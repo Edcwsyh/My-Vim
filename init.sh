@@ -41,6 +41,6 @@ cp -r ./plugged.conf/* $plugged_conf_dir/
 
 if [ ! -f $autoload_dir/plug.vim ]
 then
-    git clone $plug_remote $plugged_dir
+    git clone $plug_remote $plugged_dir/plug
     cp $plugged_dir/plug.vim $autoload_dir
 fi
