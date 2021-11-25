@@ -97,7 +97,7 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
-noremap <C-k> <C-k>k
+noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 "set tags+=/home/edcwsyh/local_develop/china_develop/src/zone/.tags
 
