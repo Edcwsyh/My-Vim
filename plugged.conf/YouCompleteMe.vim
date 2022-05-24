@@ -17,11 +17,17 @@ let g:ycm_confirm_extra_conf=0 " 允许 vim 加载 .ycm_extra_conf.py 文件，�
 let g:ycm_max_diagnostics_to_display = 0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 "let g:ycm_server_use_vim_stdout = 1
-map <F7> :YcmCompleter GoDoc<CR>
+"查看注释
+map <F7> :YcmCompleter GetDoc<CR> 
+"跳转至引用
 map <F8> :YcmCompleter GoToReferences<CR>
+"跳转至包含文件
 map <F9> :YcmCompleter GoToInclude<CR>
-map <F10> :YcmCompleter GetType<CR>
-let g:ycm_server_log_level = 'info'
+"跳转至定义
+map <F10> :YcmCompleter GoToDefinition<CR>
+"查看类型
+map <F11> :YcmCompleter GetType<CR>
+let g:ycm_server_log_level = 'error'
 let g:ycm_filepath_whitelist = {
       \ 'c': 1,
       \ 'cpp': 1,

@@ -69,7 +69,7 @@ set expandtab "将tab映射为空格
 set softtabstop=4 "tab宽度为4个空格
 set shiftwidth=4 "缩进为4个空格 
 set tabstop=4 "tab宽度为4个空格(不转换为空格时)
-set textwidth=80 "单行代码最大长度
+"set textwidth=80 "单行代码最大长度
 set showmatch "输入)}时匹配({
 set hlsearch "搜索高亮
 set autochdir "自动切换目录
@@ -135,52 +135,26 @@ func SetTitle()
         call append(line(".")+5, "")
     endif
     if expand("%:e") == 'cpp'
-        source ~/.vim/myscript/open_h_cpp.vim
 	    call append(line(".")+6, "")
     endif
     if &filetype == 'c'
-        source ~/.vim/myscript/open_h_cpp.vim
         call append(line(".")+7, "")
     endif
     if expand("%:e") == 'h'
-        source ~/.vim/myscript/open_h_cpp.vim
         call append(line(".")+6, "#ifndef __".toupper(expand("%:r"))."_EDC__")
         call append(line(".")+7, "#define __".toupper(expand("%:r"))."_EDC__")
         call append(line(".")+8, "#endif")
 	  call append(line(".")+9, "")
     endif
     if expand("%:e") == 'hpp'
-        source ~/.vim/myscript/open_h_cpp.vim
         call append(line(".")+6, "#ifndef __".toupper(expand("%:r"))."_EDC__")
         call append(line(".")+7, "#define __".toupper(expand("%:r"))."_EDC__")
         call append(line(".")+8, "")
         call append(line(".")+9, "namespace {")
         call append(line(".")+10, "")
-        call append(line(".")+11, "class ".expand("%:r")."{")
-        call append(line(".")+12, "//Member Variables")
-        call append(line(".")+13, "private:")
-        call append(line(".")+14, "    ")
-        call append(line(".")+15, "//Static Member Variables")
-        call append(line(".")+16, "private:")
-        call append(line(".")+17, "    ")
-        call append(line(".")+18, "//Member Function")
-        call append(line(".")+19, "public:")
-        call append(line(".")+20, "    ".expand("%:r")."();")
-        call append(line(".")+21, "    ~".expand("%:r")."();")
-        call append(line(".")+22, "//Static Member Function")
-        call append(line(".")+23, "public:")
-        call append(line(".")+24, "    ")
-        call append(line(".")+25, "};")
-        call append(line(".")+26, "")
-        call append(line(".")+27, expand("%:r")."::".expand("%:r")."(){")
-        call append(line(".")+28, "    ")
-        call append(line(".")+29, "}")
-        call append(line(".")+30, expand("%:r")."::~".expand("%:r")."(){")
-        call append(line(".")+31, "    ")
-        call append(line(".")+32, "}")
-        call append(line(".")+33, "")
-        call append(line(".")+34, "}")
-        call append(line(".")+35, "#endif")
+        call append(line(".")+11, "}")
+        call append(line(".")+12, "")
+        call append(line(".")+13, "#endif")
     endif
     if &filetype == 'java'
         call append(line(".")+6,"public class ".expand("%:r"))
