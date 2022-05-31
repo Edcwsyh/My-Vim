@@ -1,14 +1,37 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" value define 开启的补全插件
+" 0 : empty
+" 1 : YouComplete
+" 2 : Coc.nvim
+let g:enable_complete_plug=1
+
 call plug#begin('~/.vim/plugged')
 
 "补全插件
-Plug 'ycm-core/YouCompleteMe' 
+if g:enable_complete_plug==1
+    Plug 'ycm-core/YouCompleteMe' 
+    source ~/.vim/plugged.conf/YouCompleteMe.vim
+elseif g:enable_complete_plug==2
+    Plug 'neoclide/coc.nvim',  {'branch': 'release'}
+    source ~/.vim/plugged.conf/coc.vim
+endif
+
 "Plug 'skywind3000/vim-auto-popmenu'
+
+
 Plug 'luochen1990/rainbow'
-"文件树插件
-Plug 'preservim/nerdtree'
+
+"diff nvim
+if has("nvim")
+    "文件树插件
+    Plug 'Shougo/defx.nvim',  { 'do': ':UpdateRemotePlugins'  }
+else
+    "文件树插件
+    Plug 'preservim/nerdtree'
+endif
+
 "注释插件
 Plug 'babaybus/DoxygenToolkit.vim' 
 "括号补全插件
@@ -26,10 +49,22 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 "YouCompleteMe
-source ~/.vim/plugged.conf/YouCompleteMe.vim
 
-"nerdTree
-source ~/.vim/plugged.conf/NerdTree.vim
+"目录树插件
+if has('nvim')
+    call defx#custom#option('_',  {
+        \ 'winwidth': 30,
+        \ 'split': 'vertical',
+        \ 'direction': 'topleft',
+        \ 'show_ignored_files': 0,
+        \ 'buffer_name': '',
+        \ 'toggle': 1,
+        \ 'resume': 1
+        \ })
+    source ~/.vim/plugged.conf/defx.vim
+else
+    source ~/.vim/plugged.conf/NerdTree.vim
+endif
 
 "rainbow
 source ~/.vim/plugged.conf/rainbow.vim
@@ -50,6 +85,7 @@ map <F3> :LeaderfFunction!<CR>
 set cmdheight=2
 let g:echodoc#enable_at_startup=1
 "indentLine
+source ~/.vim/plugged.conf/indentLine.vim
 
 "myscript 自编写脚本
 source ~/.vim/myscript/manager.vim
@@ -57,7 +93,14 @@ source ~/.vim/myscript/manager.vim
 set cursorcolumn "突出显示当前列
 set cursorline "突出显示当前行
 set ambw=double "将所有字符显示为全角宽度
-colorschem slate "设置配色为slate
+
+" diff neovim
+if has('nvim')
+    colorschem desert "设置配色为desert
+else
+    colorschem slate "设置配色为slate
+endif
+
 set number "开启行号
 set nocompatible "关闭对vi的兼容
 syntax enable "开启语法高亮
@@ -114,7 +157,7 @@ func SetTitle()
         call setline(1,"\#!/bin/bash") 
         call append(line("."), "") 
     elseif &filetype == 'python'
-        call setline(1,"#!/usr/bin/env python")
+        call setline(1,"#!/usr/bin/env python3")
         call append(line("."),"# coding=utf-8")
         call append(line(".")+1, "") 
 
