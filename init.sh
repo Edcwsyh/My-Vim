@@ -6,10 +6,11 @@ plugged_dir=$vim_dir/plugged
 plugged_conf_dir=$vim_dir/plugged.conf
 my_vim=$vim_dir/myscript
 
+nvim_parent_dir=~/.config
+
 plug_remote=https://github.com/junegunn/vim-plug
 my_vim_remote=https://github.com/Edcwsyh/My-Vimscript.git
 
-cp ./.vimrc ~/./.vimrc
 
 if [ ! -d $vim_dir ]
 then
@@ -36,6 +37,16 @@ then
     mkdir $my_vim
     git clone $my_vim_remote $my_vim
 fi
+
+if [ ! -d $nvim_parent_dir ]
+then
+    mkdir $nvim_parent_dir
+    ln -s ~/.vim $nvim_parent_dir
+fi
+
+cp ./.vimrc ~/.vimrc
+cp ./coc-settings.json $vim_dir
+ln -P ~/.vimrc $vim_dir/init.vim
 
 cp -r ./plugged.conf/* $plugged_conf_dir/
 
