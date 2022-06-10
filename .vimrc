@@ -32,18 +32,23 @@ else
     Plug 'preservim/nerdtree'
 endif
 
+"配色插件
+Plug 'morhetz/gruvbox'
+"
+Plug 'yuttie/comfortable-motion.vim'
 "注释插件
 Plug 'babaybus/DoxygenToolkit.vim' 
 "括号补全插件
 Plug 'jiangmiao/auto-pairs'
 "函数原型插件
-Plug 'Shougo/echodoc.vim'
+"Plug 'Shougo/echodoc.vim'
 "tag生成插件
 "Plug 'ludovicchabant/vim-gutentags'
 "符号查看插件
-Plug 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF',  { 'do': ':LeaderfInstallCExtension'  }
 "语法高亮插件
-Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'bfrg/vim-cpp-modern'
 "缩进显示插件
 Plug 'Yggdroot/indentLine'
 call plug#end()
@@ -78,14 +83,21 @@ source ~/.vim/plugged.conf/DoxygenToolkit.vim
 "gutentags
 "source ~/.vim/plugged.conf/gutentags.vim
 
+"comfortable-motion.vim
+source ~/.vim/plugged.conf/comfortable-motion.vim
+
 "LeaderF
 map <F3> :LeaderfFunction!<CR>
 
 "echodoc.vim
 set cmdheight=2
 let g:echodoc#enable_at_startup=1
+
 "indentLine
 source ~/.vim/plugged.conf/indentLine.vim
+
+"vim-cpp-modern
+source ~/.vim/plugged.conf/vim-cpp-modern.vim
 
 "myscript 自编写脚本
 source ~/.vim/myscript/manager.vim
@@ -98,7 +110,8 @@ set ambw=double "将所有字符显示为全角宽度
 if has('nvim')
     colorschem desert "设置配色为desert
 else
-    colorschem slate "设置配色为slate
+    autocmd vimenter * ++nested colorscheme gruvbox
+    colorschem murphy "设置配色为slate
 endif
 
 set number "开启行号
@@ -123,6 +136,7 @@ set wildmenu "vim命令自动补全
 set backspace=indent,eol,start "退格键可以删除文本
 set foldenable "启用折叠
 set incsearch "输入搜索内容时就显示搜索结果"
+set scrolloff=20 "距离行首行尾多少行时自动滚屏
 "set wildmode=longest:list,full
 "
 "按键映射

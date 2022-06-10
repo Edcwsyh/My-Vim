@@ -27,9 +27,11 @@ then
     mkdir $plugged_dir
 fi
 
-if [ ! -d $plugged_conf_dir ]
+if [ -d $plugged_conf_dir ]
 then
-    mkdir $plugged_conf_dir
+    rm -rf $plugged_conf_dir
+elif [ -L $plugged_conf_dir ]
+    rm $plugged_conf_dir
 fi
 
 if [ ! -d $my_vim ]
@@ -48,7 +50,7 @@ cp ./.vimrc ~/.vimrc
 cp ./coc-settings.json $vim_dir
 ln -P ~/.vimrc $vim_dir/init.vim
 
-cp -r ./plugged.conf/* $plugged_conf_dir/
+ln -s ./plugged.conf ~/.vim/plugged.conf
 
 if [ ! -f $autoload_dir/plug.vim ]
 then
