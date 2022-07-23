@@ -46,7 +46,7 @@ then
     ln -s ~/.vim $nvim_parent_dir
 fi
 
-cp ./.vimrc ~/.vimrc
+ln -Ff ./vimrc ~/.vimrc
 cp ./coc-settings.json $vim_dir
 ln -P ~/.vimrc $vim_dir/init.vim
 

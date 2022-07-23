@@ -156,6 +156,10 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+nmap zv= :vertical resize +5<CR>
+nmap zv- :vertical resize -5<CR>
+nmap zs= :resize +5<CR>
+nmap zs- :resize -5<CR>
 "set tags+=/home/edcwsyh/local_develop/china_develop/src/zone/.tags
 
 "高亮配置
