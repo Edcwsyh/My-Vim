@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# 获取脚本所在目录
+# copy from : https://stackoverflow.com/questions/59895/how-can-i-get-the-directory-where-a-bash-script-is-located-from-within-the-scrip
+function script_dir() {
+        SOURCE=${BASH_SOURCE[0]}
+        while [ -L "$SOURCE"   ]; do # resolve $SOURCE until the file is no longer a symlink
+            DIR=$( cd -P "$( dirname "$SOURCE"   )" >/dev/null 2>&1 && pwd   )
+            SOURCE=$(readlink "$SOURCE")
+              [[ $SOURCE != /*   ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink,   we need to resolve it relative to the path where the symlink file was located
+            done
+        echo $( cd -P "$( dirname "$SOURCE"   )" >/dev/null 2>&1 && pwd   )
+}
+
+SCRIPT_DIR=`script_dir`
 vim_dir=~/.vim
 autoload_dir=$vim_dir/autoload
 plugged_dir=$vim_dir/plugged
@@ -31,6 +44,7 @@ if [ -d $plugged_conf_dir ]
 then
     rm -rf $plugged_conf_dir
 elif [ -L $plugged_conf_dir ]
+then
     rm $plugged_conf_dir
 fi
 
@@ -46,11 +60,11 @@ then
     ln -s ~/.vim $nvim_parent_dir
 fi
 
-ln -Ff ./vimrc ~/.vimrc
+ln -Pf ./vimrc ~/.vimrc
 cp ./coc-settings.json $vim_dir
-ln -P ~/.vimrc $vim_dir/init.vim
+ln -Pf ~/.vimrc $vim_dir/init.vim
 
-ln -s ./plugged.conf ~/.vim/plugged.conf
+ln -s ${SCRIPT_DIR}/plugged.conf ~/.vim/plugged.conf
 
 if [ ! -f $autoload_dir/plug.vim ]
 then
