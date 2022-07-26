@@ -51,6 +51,11 @@ Plug 'Yggdroot/LeaderF',  { 'do': ':LeaderfInstallCExtension'  }
 Plug 'bfrg/vim-cpp-modern'
 "缩进显示插件
 Plug 'Yggdroot/indentLine'
+" 生成函数定义插件
+Plug 'Edcwsyh/vim-gencode-cpp'
+set runtimepath^=~/.vim/plugged/vim-gencode-cpp
+" cpp文件跳转插件
+Plug 'vim-scripts/a.vim'
 call plug#end()
 
 "YouCompleteMe
