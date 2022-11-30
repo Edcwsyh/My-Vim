@@ -1,4 +1,5 @@
 map <F2> :NERDTreeToggle<CR>
+map <F1> :NERDTreeCWD<CR>
 " 目录树窗口尺寸
 let g:NERDTreeWinSize = 20
 " 关闭nerd帮助

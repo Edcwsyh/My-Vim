@@ -116,7 +116,8 @@ if has('nvim')
     colorschem desert "设置配色为desert
 else
     autocmd vimenter * ++nested colorscheme gruvbox
-    colorschem murphy "设置配色为slate
+    set bg=dark
+    "colorschem murphy "设置配色为slate
 endif
 
 set number "开启行号
@@ -142,6 +143,7 @@ set backspace=indent,eol,start "退格键可以删除文本
 set foldenable "启用折叠
 set incsearch "输入搜索内容时就显示搜索结果"
 set scrolloff=20 "距离行首行尾多少行时自动滚屏
+"set switchbuf+=usetab,newtab "切换选项
 "set wildmode=longest:list,full
 "
 "按键映射
@@ -172,60 +174,11 @@ highlight PMenu ctermfg=11 ctermbg=236 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=226 ctermbg=232 guifg=black guibg=darkgrey
 highlight Search term=reverse ctermfg=232 ctermbg=226 guifg=wheat guibg=peru
 
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py,*hpp exec ":call SetTitle()" 
-""定义函数SetTitle，自动插入文件头 
-func SetTitle() 
-    "如果文件类型为.sh文件 
-    if &filetype == 'sh' 
-        call setline(1,"\#!/bin/bash") 
-        call append(line("."), "") 
-    elseif &filetype == 'python'
-        call setline(1,"#!/usr/bin/env python3")
-        call append(line("."),"# coding=utf-8")
-        call append(line(".")+1, "") 
-
-    elseif &filetype == 'ruby'
-        call setline(1,"#!/usr/bin/env ruby")
-        call append(line("."),"# encoding: utf-8")
-        call append(line(".")+1, "")
-
-"    elseif &filetype == 'mkd'
-"        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
-    else 
-        call setline(1, "/*") 
-        call append(line("."), "    > File Name: ".expand("%")) 
-        call append(line(".")+1, "    > Author: Edcwsyh") 
-        call append(line(".")+2, "    > Mail: const.nullPointer@gmail.com") 
-        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
-        call append(line(".")+4, "*/") 
-        call append(line(".")+5, "")
-    endif
-    if expand("%:e") == 'cpp'
-	    call append(line(".")+6, "")
-    endif
-    if &filetype == 'c'
-        call append(line(".")+7, "")
-    endif
-    if expand("%:e") == 'h'
-        call append(line(".")+6, "#ifndef __".toupper(expand("%:r"))."_EDC__")
-        call append(line(".")+7, "#define __".toupper(expand("%:r"))."_EDC__")
-        call append(line(".")+8, "#endif")
-	  call append(line(".")+9, "")
-    endif
-    if expand("%:e") == 'hpp'
-        call append(line(".")+6, "#ifndef __".toupper(expand("%:r"))."_EDC__")
-        call append(line(".")+7, "#define __".toupper(expand("%:r"))."_EDC__")
-        call append(line(".")+8, "")
-        call append(line(".")+9, "namespace {")
-        call append(line(".")+10, "")
-        call append(line(".")+11, "}")
-        call append(line(".")+12, "")
-        call append(line(".")+13, "#endif")
-    endif
-    if &filetype == 'java'
-        call append(line(".")+6,"public class ".expand("%:r"))
-        call append(line(".")+7,"")
-    endif
-    "新建文件后，自动定位到文件末尾
-endfunc 
-autocmd BufNewFile * normal 8G
+if &term =~ "screen-256color"
+    " SecureCRT versions prior to 6.1.x do not support 4-digit DECSET
+    "    let &t_ti = "\<Esc>[?1049h"
+    "    let &t_te = "\<Esc>[?1049l"
+    " Use 2-digit DECSET instead
+    let &t_ti = "\<Esc>[?47h"
+    let &t_te = "\<Esc>[?47l"
+endif
