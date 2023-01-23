@@ -56,6 +56,8 @@ Plug 'Edcwsyh/vim-gencode-cpp'
 set runtimepath^=~/.vim/plugged/vim-gencode-cpp
 " cpp文件跳转插件
 Plug 'vim-scripts/a.vim'
+"copilot
+Plug 'github/copilot.vim'
 call plug#end()
 
 "YouCompleteMe
