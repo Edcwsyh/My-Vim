@@ -58,6 +58,8 @@ set runtimepath^=~/.vim/plugged/vim-gencode-cpp
 Plug 'vim-scripts/a.vim'
 "copilot
 Plug 'github/copilot.vim'
+"svnj.vim
+Plug 'juneedahamed/svnj.vim'
 call plug#end()
 
 "YouCompleteMe
