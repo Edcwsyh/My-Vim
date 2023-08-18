@@ -18,13 +18,38 @@ elseif g:enable_complete_plug==2
     source ~/.vim/plugged.conf/coc.vim
 endif
 
+"Plug 'skywind3000/vim-auto-popmenu'
+
+
 "括号高亮
 Plug 'luochen1990/rainbow'
 source ~/.vim/plugged.conf/rainbow.vim
 
+"diff nvim
+" if has("nvim")
+"     "文件树插件
+"     Plug 'Shougo/defx.nvim',  { 'do': ':UpdateRemotePlugins'  }
+"     call defx#custom#option('_',  {
+"         \ 'winwidth': 30,
+"         \ 'split': 'vertical',
+"         \ 'direction': 'topleft',
+"         \ 'show_ignored_files': 0,
+"         \ 'buffer_name': '',
+"         \ 'toggle': 1,
+"         \ 'resume': 1
+"         \ })
+"     source ~/.vim/plugged.conf/defx.vim
+" else
+"     "文件树插件
+"     Plug 'preservim/nerdtree'
+"     source ~/.vim/plugged.conf/NerdTree.vim
+" endif
 
 "配色插件
 Plug 'morhetz/gruvbox'
+"滾屏插件
+"Plug 'yuttie/comfortable-motion.vim'
+"source ~/.vim/plugged.conf/comfortable-motion.vim
 
 "注释插件
 Plug 'babaybus/DoxygenToolkit.vim' 
@@ -33,6 +58,14 @@ source ~/.vim/plugged.conf/DoxygenToolkit.vim
 "括号补全插件
 Plug 'jiangmiao/auto-pairs'
 source ~/.vim/plugged.conf/auto-pairs.vim
+
+"函数原型插件
+"Plug 'Shougo/echodoc.vim'
+"set cmdheight=2
+"let g:echodoc#enable_at_startup=1
+
+"tag生成插件
+"Plug 'ludovicchabant/vim-gutentags'
 
 "符号查看插件
 Plug 'Yggdroot/LeaderF',  { 'do': ':LeaderfInstallCExtension'  }
@@ -78,7 +111,7 @@ else
     "colorschem murphy "设置配色为slate
 endif
 
-set number "开启行号
+set nu "开启行号
 set nocompatible "关闭对vi的兼容
 syntax enable "开启语法高亮
 syntax on "针对所有缓冲区中的文件开启语法高亮
@@ -101,11 +134,18 @@ set backspace=indent,eol,start "退格键可以删除文本
 set foldenable "启用折叠
 set incsearch "输入搜索内容时就显示搜索结果"
 set scrolloff=20 "距离行首行尾多少行时自动滚屏
+"set foldmethod=syntax "自动折叠
 "set switchbuf+=usetab,newtab "切换选项
 "set wildmode=longest:list,full
 "
 "按键映射
+"imap [ []<LEFT>
+"imap ( ()<LEFT>
+"inoremap {} {}<Esc>i
+"inoremap " ""<ESC>i
+"inoremap ' ''<ESC>i
 inoremap <> <><ESC>i
+"imap {<CR> {<CR>}<Esc>O
 imap , , 
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -119,6 +159,7 @@ nmap zv= :vertical resize +5<CR>
 nmap zv- :vertical resize -5<CR>
 nmap zs= :resize +5<CR>
 nmap zs- :resize -5<CR>
+"set tags+=/home/edcwsyh/local_develop/china_develop/src/zone/.tags
 
 "高亮配置
 highlight PMenu ctermfg=11 ctermbg=236 guifg=black guibg=darkgrey
@@ -134,3 +175,8 @@ if &term =~ "screen-256color"
     let &t_te = "\<Esc>[?47l"
 endif
 
+augroup relative_numbser
+ autocmd!
+ autocmd InsertEnter * :set norelativenumber
+ autocmd InsertLeave * :set relativenumber
+augroup END
