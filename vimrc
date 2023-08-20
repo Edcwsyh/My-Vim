@@ -133,4 +133,3 @@ if &term =~ "screen-256color"
     let &t_ti = "\<Esc>[?47h"
     let &t_te = "\<Esc>[?47l"
 endif
-
