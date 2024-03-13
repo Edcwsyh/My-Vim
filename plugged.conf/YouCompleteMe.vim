@@ -19,7 +19,6 @@ let g:ycm_max_diagnostics_to_display = 0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_disable_for_files_larger_than_kb=2000
 let g:ycm_always_populate_location_list = 1
-nmap <leader>D <plug>(YCMHover)
 let g:ycm_auto_hover='' "禁用自动显示文档
 "let g:ycm_server_use_vim_stdout = 1
 "查看注释
@@ -51,6 +50,6 @@ let g:ycm_semantic_triggers =  {
 			\ 'cs,lua,javascript': ['re!\w{3}'],
 			\ }
 let g:ycm_autoclose_quickfix = 0
-let g:ycm_quickfix_max_height = 8
+let g:ycm_compute_height_max_size = 8
 
 
