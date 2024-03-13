@@ -1,6 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"先设置好编码格式
+set encoding=utf-8 "设置编码格式
+set fileencoding=utf-8 "设置文件编码格式
+
 " value define 开启的补全插件
 " 0 : empty
 " 1 : YouComplete
@@ -11,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 
 "补全插件
 if g:enable_complete_plug==1
-    Plug 'ycm-core/YouCompleteMe' 
+    Plug 'Edcwsyh/YouCompleteMe' 
     source ~/.vim/plugged.conf/YouCompleteMe.vim
 elseif g:enable_complete_plug==2
     Plug 'neoclide/coc.nvim',  {'branch': 'release'}
@@ -55,10 +59,10 @@ Plug 'vim-scripts/a.vim'
 "copilot
 "Plug 'github/copilot.vim'
 "svnj.vim
-Plug 'juneedahamed/svnj.vim'
+"Plug 'juneedahamed/svnj.vim'
 "airvim
-"Plug 'vim-airline/vim-airline'
-"source ~/.vim/plugged.conf/airline.vim
+Plug 'vim-airline/vim-airline'
+source ~/.vim/plugged.conf/airline.vim
 
 call plug#end()
 
@@ -82,8 +86,6 @@ set number "开启行号
 set nocompatible "关闭对vi的兼容
 syntax enable "开启语法高亮
 syntax on "针对所有缓冲区中的文件开启语法高亮
-set encoding=utf-8 "设置编码格式
-set fileencoding=utf-8 "设置文件编码格式
 "set autoindent "设置自动缩进
 set expandtab "将tab映射为空格
 set softtabstop=4 "tab宽度为4个空格

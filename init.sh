@@ -71,3 +71,6 @@ then
     git clone $plug_remote $plugged_dir/plug
     cp $plugged_dir/plug/plug.vim $autoload_dir
 fi
+
+# install ycm
+${SCRIPT_DIR}/ycm_manager.sh --install
