@@ -1,0 +1,3 @@
+[submodule "myscript"]
+	path = myscript
+	url = git@github.com:Edcwsyh/My-Vimscript.git
