@@ -77,6 +77,8 @@ function update() {
     fi
 }
 
+cd $local_repo
+
 case "$input" in
     "--update")
         update;;
