@@ -4,6 +4,7 @@ filetype off                  " required
 "先设置好编码格式
 set encoding=utf-8 "设置编码格式
 set fileencoding=utf-8 "设置文件编码格式
+set fileencodings=utf-8,gbk "设置文件编码格式
 
 " value define 开启的补全插件
 " 0 : empty
@@ -63,11 +64,11 @@ Plug 'vim-scripts/a.vim'
 "airvim
 Plug 'vim-airline/vim-airline'
 source ~/.vim/plugged.conf/airline.vim
+"ale
+"Plug 'dense-analysis/ale'
+"source ~/.vim/plugged.conf/ale.vim
 
 call plug#end()
-
-"myscript 自编写脚本
-source ~/.vim/myscript/manager.vim
 
 set cursorcolumn "突出显示当前列
 set cursorline "突出显示当前行
@@ -87,7 +88,7 @@ set nocompatible "关闭对vi的兼容
 syntax enable "开启语法高亮
 syntax on "针对所有缓冲区中的文件开启语法高亮
 "set autoindent "设置自动缩进
-set expandtab "将tab映射为空格
+set list lcs=tab:\|.
 set softtabstop=4 "tab宽度为4个空格
 set shiftwidth=4 "缩进为4个空格 
 set tabstop=4 "tab宽度为4个空格(不转换为空格时)
@@ -113,6 +114,8 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
+noremap K 3<Up>
+noremap J 3<Down>
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -135,3 +138,6 @@ if &term =~ "screen-256color"
     let &t_ti = "\<Esc>[?47h"
     let &t_te = "\<Esc>[?47l"
 endif
+
+"myscript 自编写脚本
+source ~/.vim/myscript/manager.vim
