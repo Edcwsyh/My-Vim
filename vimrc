@@ -27,7 +27,6 @@ endif
 Plug 'luochen1990/rainbow'
 source ~/.vim/plugged.conf/rainbow.vim
 
-
 "配色插件
 Plug 'morhetz/gruvbox'
 
@@ -60,7 +59,7 @@ Plug 'vim-scripts/a.vim'
 "copilot
 "Plug 'github/copilot.vim'
 "svnj.vim
-"Plug 'juneedahamed/svnj.vim'
+Plug 'juneedahamed/svnj.vim'
 "airvim
 Plug 'vim-airline/vim-airline'
 source ~/.vim/plugged.conf/airline.vim
@@ -68,6 +67,9 @@ source ~/.vim/plugged.conf/airline.vim
 "Plug 'dense-analysis/ale'
 "source ~/.vim/plugged.conf/ale.vim
 
+"ai
+"Plug 'madox2/vim-ai'
+"Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 call plug#end()
 
 set cursorcolumn "突出显示当前列
