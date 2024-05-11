@@ -64,8 +64,8 @@ Plug 'juneedahamed/svnj.vim'
 Plug 'vim-airline/vim-airline'
 source ~/.vim/plugged.conf/airline.vim
 "ale
-"Plug 'dense-analysis/ale'
-"source ~/.vim/plugged.conf/ale.vim
+Plug 'dense-analysis/ale'
+source ~/.vim/plugged.conf/ale.vim
 
 "ai
 "Plug 'madox2/vim-ai'
