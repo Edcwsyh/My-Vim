@@ -19,7 +19,7 @@ let g:ycm_max_diagnostics_to_display = 0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_disable_for_files_larger_than_kb=2000
 let g:ycm_always_populate_location_list = 1
-"let g:ycm_auto_hover='' "禁用自动显示文档
+let g:ycm_auto_hover='' "禁用自动显示文档
 "let g:ycm_server_use_vim_stdout = 1
 "查看注释
 map <F7> <plug>(YCMHover)
@@ -42,7 +42,7 @@ map <F6> :YcmCompleter FixIt<CR>
 "显示错误信息
 map <F5> :YcmDiags<CR>
 map <C-F5> :YcmShowDetailedDiagnostic<CR>
-nmap <leader>t :YcmCompleter RefactorRename 
+nmap <leader>t :YcmCompleter RefactorRename <C-R>=expand("<cword>")<CR>
 nmap ]c :lnext<CR>
 nmap [c :lprevious<CR>
 let g:ycm_filepath_whitelist = {
