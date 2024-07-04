@@ -13,9 +13,14 @@ local_repo=~/.vim/plugged/YouCompleteMe
 remote_repo=https://github.com/Edcwsyh/YouCompleteMe.git
 #临时构建目录
 build_path=/tmp/$USER/YouCompleteMe.build
-build_mode="--rust-completer --clangd-completer --go-completer"
+build_mode="--clangd-completer --go-completer"
+
+function install_tool() {
+    sudo apt install build-essential cmake vim-nox python3-dev
+}
 
 function install() {
+    install_tool
     echo -e "\e[1;32mBegin\e[0m : Start the installation of 'YouCompleteMe'!";
     if [ ! -d $local_repo ]
     then
