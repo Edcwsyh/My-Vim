@@ -1,4 +1,4 @@
 [submodule "myscript"]
 	path = myscript
-	url = git@github.com:Edcwsyh/My-Vimscript.git
+	url = https://github.com/Edcwsyh/My-Vimscript.git
 	branch = .
