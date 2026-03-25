@@ -59,13 +59,18 @@ Plug 'vim-scripts/a.vim'
 "copilot
 "Plug 'github/copilot.vim'
 "svnj.vim
-Plug 'juneedahamed/svnj.vim'
+"Plug 'juneedahamed/svnj.vim'
+"vc.vim
+Plug 'juneedahamed/vc.vim'
 "airvim
 Plug 'vim-airline/vim-airline'
 source ~/.vim/plugged.conf/airline.vim
 "ale
 Plug 'dense-analysis/ale'
 source ~/.vim/plugged.conf/ale.vim
+"AI
+Plug 'madox2/vim-ai'
+
 
 "ai
 "Plug 'madox2/vim-ai'
@@ -137,8 +142,8 @@ if &term =~ "screen-256color"
     "    let &t_ti = "\<Esc>[?1049h"
     "    let &t_te = "\<Esc>[?1049l"
     " Use 2-digit DECSET instead
-    let &t_ti = "\<Esc>[?47h"
-    let &t_te = "\<Esc>[?47l"
+    " let &t_ti = "\<Esc>[?47h"
+    " let &t_te = "\<Esc>[?47l"
 endif
 
 "myscript 自编写脚本
