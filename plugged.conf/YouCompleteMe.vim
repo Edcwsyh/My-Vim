@@ -60,3 +60,6 @@ let g:ycm_semantic_triggers =  {
 let g:ycm_autoclose_quickfix = 0
 let g:ycm_compute_height_max_size = 8
 let g:ycm_show_detailed_diag_in_popup=1
+
+let g:ycm_clangd_binary_path = '~/bin/clangd'
+let g:ycm_gopls_binary_path = '/data/Edcwsyh/go/bin/gopls'
