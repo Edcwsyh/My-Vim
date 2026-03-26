@@ -22,6 +22,7 @@ my_vim=$vim_dir/myscript
 nvim_parent_dir=~/.config
 
 
+
 plug_remote=https://github.com/junegunn/vim-plug
 
 
