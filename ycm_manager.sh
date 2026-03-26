@@ -12,7 +12,7 @@ local_repo=~/.vim/plugged/YouCompleteMe
 #远程仓库目录
 remote_repo=https://github.com/Edcwsyh/YouCompleteMe.git
 #临时构建目录
-build_path=/tmp/$USER/YouCompleteMe.build
+build_path=~/tmp/$USER/YouCompleteMe.build
 build_mode="--clangd-completer --go-completer"
 
 function install_tool() {
@@ -61,7 +61,7 @@ function install() {
     git submodule update --init --recursive
     python3 $local_repo/install.py $build_mode --build-dir=$build_path --verbose
     #删除构建目录
-    rm -rf $build_path/*
+    # rm -rf $build_path/*
 }
 
 function update() {
@@ -76,7 +76,7 @@ function update() {
         fi
         python3 $local_repo/install.py $build_mode --build-dir=$build_path --verbose
         #删除构建目录
-        rm -r $build_path/*
+        # rm -r $build_path/*
     else
         echo -e "\e[1;31mError\e[0m : No local repository exists,  please run 'ycm_manger --install'";
     fi
