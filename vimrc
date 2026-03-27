@@ -6,6 +6,7 @@ set encoding=utf-8 "设置编码格式
 set fileencoding=utf-8 "设置文件编码格式
 set fileencodings=utf-8,gbk "设置文件编码格式
 
+
 " value define 开启的补全插件
 " 0 : empty
 " 1 : YouComplete
